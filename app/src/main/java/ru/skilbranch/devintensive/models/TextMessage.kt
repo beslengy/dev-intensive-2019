@@ -1,0 +1,16 @@
+package ru.skilbranch.devintensive.models
+
+import ru.skilbranch.devintensive.extensions.humanizeDiff
+import java.util.*
+
+class TextMessage (
+    id:String,
+    from:User?,
+    chat:Chat,
+    isIncoming:Boolean = false,
+    date: Date = Date(),
+    val text:String?
+) : BaseMessage(id, from, chat, isIncoming, date) {
+    override fun formatMessage(): String = "id: $id ${from?.firstName}" +
+            " ${if(isIncoming) "Получил" else "Отправил"} сообщение \"$text\" ${date.humanizeDiff()}"
+}
