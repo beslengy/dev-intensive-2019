@@ -8,6 +8,7 @@ import ru.skilbranch.devintensive.extensions.add
 import ru.skilbranch.devintensive.extensions.format
 import ru.skilbranch.devintensive.extensions.toUserView
 import ru.skilbranch.devintensive.models.*
+import ru.skilbranch.devintensive.utils.Utils
 import java.util.*
 
 /**
@@ -24,7 +25,7 @@ class ExampleUnitTest {
     @Test
     fun test_instance() {
 //        val user = User ("1")
-        val user2 = User ("2", "John", "Cena")
+        val user2 = User("2", "John", "Cena")
 //        val user3 = User ("3", "John", "Silverhand", null, lastVisit = Date(), isOnline = true)
 
 //        user.printMe()
@@ -46,12 +47,19 @@ class ExampleUnitTest {
 
     @Test
     fun test_decomposition() {
-        val user = User.makeUser("John Wick")
+        val user1 = User.makeUser("John Wick")
+        val user2 = User.makeUser(null) //null null
+        val user3 = User.makeUser("") //null null
+        val user4 = User.makeUser(" ") //null null
+        val user5 = User.makeUser("John") //John null
 
-        fun getUserInfo() = user
-        val (id, firstName, lastName) = getUserInfo()
-        println("$id, $firstName, $lastName")
-        println("${user.component1()}, ${user.component2()}, ${user.component3()}")
+        Utils.getUserInfo(user1)
+        Utils.getUserInfo(user2)
+        Utils.getUserInfo(user3)
+        Utils.getUserInfo(user4)
+        Utils.getUserInfo(user5)
+
+
     }
 
     @Test
@@ -61,14 +69,16 @@ class ExampleUnitTest {
         val user = User.makeUser("John Wick")
         var user2 = user.copy(lastVisit = Date())
         var user3 = user.copy(lastVisit = Date().add(-2, TimeUnits.SECOND))
-        var user4 = user.copy(lastName = "Cena",  lastVisit = Date().add(2, TimeUnits.HOUR))
+        var user4 = user.copy(lastName = "Cena", lastVisit = Date().add(2, TimeUnits.HOUR))
 
-        println("""
+        println(
+            """
             ${user.lastVisit?.format()}
             ${user2.lastVisit?.format()}
             ${user3.lastVisit?.format()}
             ${user4.lastVisit?.format()}
-        """.trimIndent())
+        """.trimIndent()
+        )
 
         /*if(user.equals(user2)) {
             println("equals data and hash \n${user.hashCode()} $user \n${user2.hashCode()} $user2")
@@ -91,7 +101,7 @@ class ExampleUnitTest {
     @Test
     //Суть - преобразование дата класса к конкретному объекту
     fun test_data_maping() {
-        val user = User.makeUser("Молчанов Ярослав")
+        val user = User.makeUser("Ярослав Slengy")
         val newUser = user.copy(lastVisit = Date().add(-7, TimeUnits.SECOND))
         println(user)
         val userView = user.toUserView()
@@ -100,12 +110,82 @@ class ExampleUnitTest {
 
     @Test
     fun test_abstractFactory() {
-        val user = User.makeUser("Молчанов Ярослав")
-        val txtMessage = BaseMessage.makeMessage(user, Chat("0"), payload = "any text", type = "text")
-        val imgMessage = BaseMessage.makeMessage(user, Chat("0"), payload = "any image url", type = "image")
+        val user = User.makeUser("Ярослав Молчанов")
+        val txtMessage =
+            BaseMessage.makeMessage(user, Chat("0"), payload = "any text", type = "text")
+        val imgMessage = BaseMessage.makeMessage(
+            user,
+            Chat("0"),
+            date = Date().add(-21, TimeUnits.DAY),
+            payload = "any image url",
+            type = "image",
+            isIncoming = true
+        )
 
         println(txtMessage.formatMessage())
         println(imgMessage.formatMessage())
 
+    }
+
+    @Test
+    fun test_initials() {
+        //val user = User.makeUser()
+        val a = Utils.toInitials("john", "doe") //JD
+        val e = Utils.toInitials(null, "doe") //D
+        val s = Utils.toInitials("John", null) //J
+        val b = Utils.toInitials(null, null) //null
+        val v = Utils.toInitials(" ", "") //null
+        println(
+            """
+            $a
+            $e
+            $s
+            $b
+            $v
+        """.trimIndent()
+        )
+    }
+
+    @Test
+    fun test_humanDiff() {
+        val user = User.makeUser("peter parker")
+        val newUser = user.copy(lastVisit = Date().add(-11, TimeUnits.HOUR))
+        val userView = newUser.toUserView()
+        userView.printMe()
+        println(
+            """
+            ${user.lastVisit?.format()}
+            ${newUser.lastVisit?.format()}
+        """.trimIndent()
+        )
+
+    }
+
+    @Test
+    fun test_makeMessage() {
+        val user = User.makeUser("peter parker")
+        val chat = Chat("Pussies")
+        BaseMessage.makeMessage(user, chat, date = Date(), payload = "some text")
+        BaseMessage.makeMessage(
+            user, chat, date = Date(), payload = "some text",
+            type = "text", isIncoming = true
+        )
+
+    }
+
+    @Test
+    fun test_userBuilder() {
+        val user = User.Builder().id("1")
+            .firstName("Yaroslav")
+            .lastName("Slengy")
+            .avatar("avatar")
+            .rating(10)
+            .respect(6)
+            .lastVisit(Date())
+            .isOnline(true)
+            .build()
+
+        user.toUserView().printMe()
+        print(user)
     }
 }

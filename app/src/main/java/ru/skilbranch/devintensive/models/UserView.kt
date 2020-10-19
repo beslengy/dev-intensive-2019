@@ -1,7 +1,7 @@
 package ru.skilbranch.devintensive.models
 
 class UserView (
-    val id:String,
+    val id:String?,
     val fullName:String,
     val nickName:String,
     var avatar:String? = null,
@@ -10,12 +10,12 @@ class UserView (
 ){
     fun printMe() {
         println("""
-            id: $id:
-            fullName: $fullName:
-            nickName: $nickName:
-            avatar: $avatar:
-            status: $status:
-            initials: $initials:
+            id: $id
+            fullName: $fullName
+            nickName: $nickName
+            avatar: $avatar
+            status: $status
+            initials: $initials
         """.trimIndent())
     }
 }
