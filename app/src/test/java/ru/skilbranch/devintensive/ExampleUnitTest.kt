@@ -185,7 +185,14 @@ class ExampleUnitTest {
             .isOnline(true)
             .build()
 
-        user.toUserView().printMe()
-        print(user)
+        val user2 = User.Builder().avatar("img")
+            .firstName("samara")
+            .isOnline(false)
+            .rating(8)
+            .build()
+
+//        user.toUserView().printMe()
+        println(user)
+        println(user2)
     }
 }
