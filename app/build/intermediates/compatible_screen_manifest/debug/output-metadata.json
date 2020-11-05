@@ -4,7 +4,7 @@
     "type": "COMPATIBLE_SCREEN_MANIFEST",
     "kind": "Directory"
   },
-  "applicationId": "ru.skilbranch.devintensive",
+  "applicationId": "ru.skillbranch.devintensive",
   "variantName": "debug",
   "elements": []
 }

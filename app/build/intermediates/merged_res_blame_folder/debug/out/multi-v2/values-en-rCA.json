@@ -4,7 +4,7 @@
             "outputFile": "D:\\Programs\\Android\\AndroidStudioProjects\\Devintensive\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-en-rCA\\values-en-rCA.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Sleng\\.gradle\\caches\\transforms-2\\files-2.1\\d56b547ba0a39ec124154c760efe7d34\\appcompat-1.1.0\\res\\values-en-rCA\\values-en-rCA.xml",
+                    "source": "C:\\Users\\Sleng\\.gradle\\caches\\transforms-2\\files-2.1\\cf13004b6ce8b5090c81456de7f18a68\\appcompat-1.0.2\\res\\values-en-rCA\\values-en-rCA.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -14,7 +14,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Sleng\\.gradle\\caches\\transforms-2\\files-2.1\\9a5cfec0869f1391010088c12e90df40\\core-1.1.0\\res\\values-en-rCA\\values-en-rCA.xml",
+                    "source": "C:\\Users\\Sleng\\.gradle\\caches\\transforms-2\\files-2.1\\a497e3b9f29d0558bdbe8498df54dc6a\\core-1.0.2\\res\\values-en-rCA\\values-en-rCA.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
