@@ -1,5 +1,7 @@
 package ru.skilbranch.devintensive
 
+import android.app.Activity
+import android.content.Context
 import android.graphics.Color
 import android.graphics.PorterDuff
 import androidx.appcompat.app.AppCompatActivity
@@ -7,10 +9,14 @@ import android.os.Bundle
 import android.os.PersistableBundle
 import android.util.Log
 import android.view.View
+import android.view.inputmethod.EditorInfo
+import android.view.inputmethod.InputMethodManager
+import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
 import kotlinx.android.synthetic.main.activity_main.*
+import ru.skilbranch.devintensive.extensions.hideKeyboard
 import ru.skilbranch.devintensive.models.Bender
 
 
@@ -19,6 +25,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     lateinit var textTxt : TextView
     lateinit var messageEt : EditText
     lateinit var sendBtn : ImageView
+    lateinit var doneBtn : Button
+    lateinit var rootView: View
 
     lateinit var benderObj : Bender
     /**
@@ -43,6 +51,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         textTxt = tv_text
         messageEt = et_message
         sendBtn = iv_send
+        rootView = rv_rootView
 
         val status = savedInstanceState?.getString("STATUS") ?: Bender.Status.NORMAL.name
         val question = savedInstanceState?.getString("QUESTION") ?: Bender.Question.NAME.name
@@ -55,6 +64,19 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
         textTxt.text = benderObj.askQuestion()
         sendBtn.setOnClickListener(this)
+        messageEt.setOnEditorActionListener{ v, actionId, event ->
+            when(actionId){
+            EditorInfo.IME_ACTION_DONE -> {
+                hideKeyboard()
+                val (phrase, color) = benderObj.listenAnswer(messageEt.text.toString())
+                messageEt.setText("")
+                val (r, g, b) = color
+                benderImage.setColorFilter(Color.rgb(r,g,b), PorterDuff.Mode.MULTIPLY)
+                textTxt.text = phrase
+                true }
+            else -> false
+        }
+        }
     }
 
     /**
