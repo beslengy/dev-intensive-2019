@@ -5,7 +5,7 @@ import android.util.Log
 class Bender (
     var status:Status = Status.NORMAL,
     var question: Question = Question.NAME,
-    var negAnswersCounter: Int = 1
+    private var negAnswersCounter: Int = 0
 ) {
     fun askQuestion():String = when (question) {
         Question.NAME -> Question.NAME.question
@@ -17,29 +17,52 @@ class Bender (
     }
 
     fun listenAnswer(answer:String) : Pair<String, Triple<Int, Int, Int>> {
+        Log.d("M_Bender", "Listen Answer on")
+        fun validation (question: Question, text : String) : Boolean {
+            Log.d("M_Bender", "Validation on, answer ${text.toCharArray().contentToString()}")
+            return when (question) {
+                Question.NAME -> text[0] == text[0].toUpperCase()
+                Question.PROFESSION -> text[0] == text[0].toLowerCase()
+                Question.MATERIAL -> !text.toCharArray().any { it in listOf('1', '2', '3', '4', '5', '6', '7', '8', '9', '0') }
+                Question.BDAY -> text.toIntOrNull() is Int
+                Question.SERIAL -> (text.toIntOrNull() is Int && text.length == 7)
+                Question.IDLE -> true
+            }
 
-        return if (question.answers.contains(answer)) {
-            negAnswersCounter = 1
-            if (question == Question.IDLE) {
-                "Отлично - ты справился\nНа этом все, вопросов больше нет" to status.color
-            } else {
-                question = question.nextQuestion()
-                "Отлично - ты справился\n${question.question}" to status.color
-            }
-        } else {
-            if (negAnswersCounter < 3) {
-                negAnswersCounter++
-                Log.d("M_Bender", "$negAnswersCounter")
-                status = status.nextStatus()
-                "Это неправильный ответ\n${question.question}" to status.color
-            } else {
-                negAnswersCounter = 1
-                status = Status.NORMAL
-                question = Question.NAME
-                "Это неправильный ответ. Давай все по новой\n${question.question}" to status.color
-            }
         }
+        return if (validation(question, answer)) {
+                    if (question.answers.contains(answer.toLowerCase())) {
+                        negAnswersCounter = 0
+                        if (question == Question.IDLE) {
+                            "Отлично - ты справился\nНа этом все, вопросов больше нет" to status.color
+                        } else {
+                            question = question.nextQuestion()
+                            "Отлично - ты справился\n${question.question}" to status.color
+                        }
+                    } else {
+                        if (negAnswersCounter < 3) {
+                            negAnswersCounter++
+                            Log.d("M_Bender", "$negAnswersCounter")
+                            status = status.nextStatus()
+                            "Это неправильный ответ\n${question.question}" to status.color
+                        } else {
+                            negAnswersCounter = 0
+                            status = Status.NORMAL
+                            question = Question.NAME
+                            "Это неправильный ответ. Давай все по новой\n${question.question}" to status.color
+                        }
+                    }
 
+        } else {
+                when (question) {
+                    Question.NAME -> "Имя должно начинаться с заглавной буквы\n${question.question}" to status.color
+                    Question.PROFESSION -> "Профессия должна начинаться со строчной буквы\n${question.question}" to status.color
+                    Question.MATERIAL -> "Материал не должен содержать цифр\n${question.question}" to status.color
+                    Question.BDAY -> "Год моего рождения должен содержать только цифры\n${question.question}" to status.color
+                    Question.SERIAL -> "Серийный номер содержит только цифры, и их 7\n${question.question}" to status.color
+                    Question.IDLE -> " " to status.color
+                }
+        }
     }
 
     enum class Status (val color:Triple<Int, Int, Int>) { //содержит список статусов и конструктор с определением цвета по ргб
