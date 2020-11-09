@@ -56,16 +56,16 @@
         "source": "D:\\Programs\\Android\\AndroidStudioProjects\\Devintensive\\app\\src\\main\\res\\mipmap-xxxhdpi\\bender_dance_foreground.png"
     },
     {
-        "merged": "D:\\Programs\\Android\\AndroidStudioProjects\\Devintensive\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher.png.flat",
-        "source": "D:\\Programs\\Android\\AndroidStudioProjects\\Devintensive\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher.png"
-    },
-    {
         "merged": "D:\\Programs\\Android\\AndroidStudioProjects\\Devintensive\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_bender_dance.png.flat",
         "source": "D:\\Programs\\Android\\AndroidStudioProjects\\Devintensive\\app\\src\\main\\res\\mipmap-mdpi\\bender_dance.png"
     },
     {
         "merged": "D:\\Programs\\Android\\AndroidStudioProjects\\Devintensive\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_bender_dance_foreground.png.flat",
         "source": "D:\\Programs\\Android\\AndroidStudioProjects\\Devintensive\\app\\src\\main\\res\\mipmap-hdpi\\bender_dance_foreground.png"
+    },
+    {
+        "merged": "D:\\Programs\\Android\\AndroidStudioProjects\\Devintensive\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "D:\\Programs\\Android\\AndroidStudioProjects\\Devintensive\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher.png"
     },
     {
         "merged": "D:\\Programs\\Android\\AndroidStudioProjects\\Devintensive\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_bender_dance_round.png.flat",

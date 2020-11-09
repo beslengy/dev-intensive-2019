@@ -6,7 +6,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
+    tools:context="ru.skillbranch.devintensive.MainActivity"
     android:orientation="vertical">
 
     <TextView
@@ -31,36 +31,34 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:background="@color/color_primary"
-        android:layout_marginTop="@dimen/spacing_normal_16">
-            <EditText
-                android:id="@+id/et_message"
-                android:imeOptions="actionDone"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:lines="1"
-                android:textColor="@color/color_light_gray"
-                android:textColorHint="@color/color_light_gray"
-                android:hint="Введите текст"
-                android:paddingTop="@dimen/spacing_normal_16"
-                android:paddingBottom="@dimen/spacing_normal_16"
-                android:layout_marginLeft="@dimen/spacing_normal_16"
-                android:layout_marginRight="@dimen/spacing_normal_16"
-                android:singleLine="true"
-                />
+        android:layout_marginTop="@dimen/spacing_normal_16"
+        android:background="@color/color_primary">
 
-            <ImageView
-                android:id="@+id/iv_send"
-                android:layout_width="@dimen/spacing_large_24"
-                android:layout_height="@dimen/spacing_large_24"
-                android:src="@drawable/ic_baseline_send_24"
-                android:layout_gravity="center"
-                android:layout_marginRight="@dimen/spacing_normal_16"
-                />
+        <EditText
+            android:id="@+id/et_message"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/spacing_normal_16"
+            android:layout_marginRight="@dimen/spacing_normal_16"
+            android:layout_weight="1"
+            android:hint="Введите текст"
+            android:imeOptions="actionDone|flagNoExtractUi"
+            android:lines="1"
+            android:paddingTop="@dimen/spacing_normal_16"
+            android:paddingBottom="@dimen/spacing_normal_16"
+            android:singleLine="true"
+            android:textColor="@color/color_light_gray"
+            android:textColorHint="@color/color_light_gray" />
+
+        <ImageView
+            android:id="@+id/iv_send"
+            android:layout_width="@dimen/spacing_large_24"
+            android:layout_height="@dimen/spacing_large_24"
+            android:layout_gravity="center"
+            android:layout_marginRight="@dimen/spacing_normal_16"
+            android:src="@drawable/ic_baseline_send_24" />
 
 
-        </LinearLayout>
+    </LinearLayout>
 
 </LinearLayout>

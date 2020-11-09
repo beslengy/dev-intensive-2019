@@ -4,7 +4,7 @@
     "type": "PROCESSED_RES",
     "kind": "Directory"
   },
-  "applicationId": "ru.skilbranch.devintensive.test",
+  "applicationId": "ru.skillbranch.devintensive.test",
   "variantName": "processDebugAndroidTestResources",
   "elements": [
     {

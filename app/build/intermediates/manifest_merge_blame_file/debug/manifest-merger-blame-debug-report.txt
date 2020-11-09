@@ -15,7 +15,7 @@
 12        android:allowBackup="true"
 12-->D:\Programs\Android\AndroidStudioProjects\Devintensive\app\src\main\AndroidManifest.xml:6:9-35
 13        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-13-->[androidx.core:core:1.0.2] C:\Users\Sleng\.gradle\caches\transforms-2\files-2.1\a497e3b9f29d0558bdbe8498df54dc6a\core-1.0.2\AndroidManifest.xml:22:18-86
+13-->[androidx.core:core:1.0.1] C:\Users\Sleng\.gradle\caches\transforms-2\files-2.1\130e43d80201415bcab34ee97b314158\core-1.0.1\AndroidManifest.xml:22:18-86
 14        android:debuggable="true"
 15        android:extractNativeLibs="false"
 16        android:icon="@mipmap/ic_launcher"
@@ -29,9 +29,9 @@
 20        android:testOnly="true"
 21        android:theme="@style/AppTheme" >
 21-->D:\Programs\Android\AndroidStudioProjects\Devintensive\app\src\main\AndroidManifest.xml:11:9-40
-22        <activity android:name="ru.skilbranch.devintensive.MainActivity" >
+22        <activity android:name="ru.skillbranch.devintensive.MainActivity" >
 22-->D:\Programs\Android\AndroidStudioProjects\Devintensive\app\src\main\AndroidManifest.xml:12:9-18:20
-22-->D:\Programs\Android\AndroidStudioProjects\Devintensive\app\src\main\AndroidManifest.xml:12:19-47
+22-->D:\Programs\Android\AndroidStudioProjects\Devintensive\app\src\main\AndroidManifest.xml:12:19-74
 23            <intent-filter>
 23-->D:\Programs\Android\AndroidStudioProjects\Devintensive\app\src\main\AndroidManifest.xml:13:13-17:29
 24                <action android:name="android.intent.action.MAIN" />
