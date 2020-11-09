@@ -35,7 +35,7 @@ INJECTED from D:\Programs\Android\AndroidStudioProjects\Devintensive\app\src\mai
 INJECTED from D:\Programs\Android\AndroidStudioProjects\Devintensive\app\src\main\AndroidManifest.xml:2:1-21:12
 INJECTED from D:\Programs\Android\AndroidStudioProjects\Devintensive\app\src\main\AndroidManifest.xml:2:1-21:12
 	package
-		ADDED from D:\Programs\Android\AndroidStudioProjects\Devintensive\app\src\main\AndroidManifest.xml:3:5-41
+		ADDED from D:\Programs\Android\AndroidStudioProjects\Devintensive\app\src\main\AndroidManifest.xml:3:5-42
 		INJECTED from D:\Programs\Android\AndroidStudioProjects\Devintensive\app\src\main\AndroidManifest.xml
 		INJECTED from D:\Programs\Android\AndroidStudioProjects\Devintensive\app\src\main\AndroidManifest.xml
 	android:versionName
