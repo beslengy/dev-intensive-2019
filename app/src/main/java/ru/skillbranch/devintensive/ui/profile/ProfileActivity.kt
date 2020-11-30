@@ -1,4 +1,4 @@
-package ru.skillbranch.devintensive
+package ru.skillbranch.devintensive.ui.profile
 
 import android.graphics.Color
 import android.graphics.PorterDuff
@@ -11,21 +11,21 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
-import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_profile.*
 import ru.skillbranch.devintensive.R
 import ru.skillbranch.devintensive.extensions.hideKeyboard
 import ru.skillbranch.devintensive.models.Bender
 
 
-class MainActivity : AppCompatActivity(){
-    lateinit var benderImage : ImageView
+class ProfileActivity : AppCompatActivity(){
+    /*lateinit var benderImage : ImageView
     lateinit var textTxt : TextView
     lateinit var messageEt : EditText
     lateinit var sendBtn : ImageView
     lateinit var doneBtn : Button
     lateinit var rootView: View
 
-    lateinit var benderObj : Bender
+    lateinit var benderObj : Bender*/
     /**
      * Вызывается при первом создании или перезапуске Activity.
      *
@@ -41,10 +41,10 @@ class MainActivity : AppCompatActivity(){
      */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_profile)
 
 //        benderImage = findViewById(R.id.iv_bender)
-        benderImage = iv_bender
+        /*benderImage = iv_bender
         textTxt = tv_text
         messageEt = et_message
         sendBtn = iv_send
@@ -86,7 +86,7 @@ class MainActivity : AppCompatActivity(){
                 hideKeyboard()
                 true
             } else false
-        }
+        }*/
     }
 
     /**
@@ -181,22 +181,22 @@ class MainActivity : AppCompatActivity(){
      * Для API Level >= 28 будет вызван после onStop()
      * Не будет вызван, если Activity будет явно закрыто пользователем при нажатии на системную клавишу back
      */
-    override fun onSaveInstanceState(outState: Bundle?) { //создаем бандл, чтобы сохранить пользовательский ввод и все изменения после поворота экрана
+    override fun onSaveInstanceState(outState: Bundle) { //создаем бандл, чтобы сохранить пользовательский ввод и все изменения после поворота экрана
         super.onSaveInstanceState(outState)
 
         //outState?.putString("TEXT", textTxt.text.toString())
-        outState?.putString("STATUS", benderObj.status.name)
+        /*outState?.putString("STATUS", benderObj.status.name)
         outState?.putString("QUESTION", benderObj.question.name)
-        Log.d("M_MainActivity", "onSaveInstanceState ${benderObj.status.name} ${benderObj.question.name}")
+        Log.d("M_MainActivity", "onSaveInstanceState ${benderObj.status.name} ${benderObj.question.name}")*/
     }
 
-    fun sendAnswer() {
+   /* fun sendAnswer() {
             val (phrase, color) = benderObj.listenAnswer(messageEt.text.toString())
             messageEt.setText("")
             val (r, g, b) = color
             benderImage.setColorFilter(Color.rgb(r,g,b), PorterDuff.Mode.MULTIPLY)
             textTxt.text = phrase
-    }
+    }*/
 //    override fun onClick(v: View?) {
 //        if (v?.id == R.id.iv_send) {
 //            val (phrase, color) = benderObj.listenAnswer(messageEt.text.toString())
