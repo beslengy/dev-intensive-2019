@@ -7,4 +7,16 @@
         <item name="colorAccent">@color/color_accent</item>
     </style>
 
+    <style name="Profile">
+
+    </style>
+
+    <style name="Profile.EditText" parent="Profile">
+        <item name="android:textColor">@color/color_primary</item>
+        <item name="android:paddingTop">4dp</item>
+        <item name="android:enabled">false</item>
+        <item name="android:focusableInTouchMode">false</item>
+        <item name="android:focusable">false</item>
+    </style>
+
 </resources>

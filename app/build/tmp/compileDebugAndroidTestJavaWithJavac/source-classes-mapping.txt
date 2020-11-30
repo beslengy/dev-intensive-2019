@@ -1,2 +1,0 @@
-ru/skillbranch/devintensive/test/BuildConfig.java
- ru.skillbranch.devintensive.test.BuildConfig
